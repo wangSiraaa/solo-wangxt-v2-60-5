@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/it_evidencechain
+  flyway:
+    enabled: true
+
+evidence:
+  anchor:
+    on-startup: false

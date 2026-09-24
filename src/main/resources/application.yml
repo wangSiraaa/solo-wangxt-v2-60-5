@@ -1,0 +1,31 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: evidence-chain
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/evidencechain}
+    username: ${DB_USERNAME:evidence}
+    password: ${DB_PASSWORD:evidence}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+
+# Historical anchoring is executed once on startup after Flyway migration.
+evidence:
+  anchor:
+    on-startup: true
+
+logging:
+  level:
+    com.example.evidencechain: INFO
