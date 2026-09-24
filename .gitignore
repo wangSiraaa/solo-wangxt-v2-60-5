@@ -23,3 +23,19 @@ venv/
 __pycache__/
 .pytest_cache/
 .DS_Store
+
+# Java / Maven / Spring Boot
+target/
+*.class
+*.jar
+!.mvn/wrapper/*.jar
+.idea/
+*.iml
+.vscode/
+.settings/
+.project
+.classpath
+
+# embedded postgres test data
+.embedpostgresql/
+

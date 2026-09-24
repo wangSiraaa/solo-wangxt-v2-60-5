@@ -1,0 +1,22 @@
+server:
+  port: ${SERVER_PORT:8080}
+
+spring:
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/evidence}
+    username: ${SPRING_DATASOURCE_USERNAME:evidence}
+    password: ${SPRING_DATASOURCE_PASSWORD:evidence}
+    hikari:
+      maximum-pool-size: 10
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:db/V1__core_tables.sql,classpath:db/V2__legacy_tables.sql
+
+# When true, legacy plans are anchored into the evidence chain on application startup.
+evidence:
+  anchor-on-startup: ${EVIDENCE_ANCHOR_ON_STARTUP:false}
+
+logging:
+  level:
+    com.example.evidence: INFO
